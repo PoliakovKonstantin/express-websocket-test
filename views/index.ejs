@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href="style.css">
+    <script src='library.js'></script>
+    <title>Главная</title>
+    <style>
+        #tab {
+            border: 2px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            margin-left: 27%;
+        }
+        td, th {
+            padding: 3px; 
+            border: 1px solid black; 
+        }
+        .create {
+            margin-left: 42%;
+            margin-top: 3%;
+            padding: 1%;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h1>Главная</h1>
+    <table id='tab'>
+            <% if(arr.length) { %>
+                <table class="table table-striped table-sm  mt-3" id='tab'>
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">title</th>
+                        <th scope="col">description</th>
+                        <th scope="col">authors</th>
+                        <th scope="col">favorite</th>
+                        <th scope="col">fileCover</th>
+                        <th scope="col">fileName</th>
+                        <th scope="col">fileBook</th>
+                        <th scope="col">putBook</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% arr.map((el, idx) => { %>
+                        <tr>
+                            <th scope="row"><%= idx + 1 %></th>
+                            <td><%= el.title %></td>
+                            <td><%= el.description %></td>
+                            <td><%= el.authors %></td>
+                            <td><%= el.favorite %></td>
+                            <td><%= el.fileCover %></td>
+                            <td><%= el.fileName %></td>
+                            <td><%= el.fileBook %></td>
+                            <td class="text-right">
+                                <form method="POST" action="/api/post/books/<%=el.id%>">
+                                    <button>putBook</button>                                
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            
+            <% }else { %>
+                <h3 class="mt-5">Записей пока нет</h3>
+            <% } %>
+            
+    </table>
+    <form method="POST" action="/api/books" target="_blank">
+        <button class='create'>createBook</button>
+    </form>
+</body>
+</html>

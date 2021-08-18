@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href="style.css">
+    <title></title>
+    <style>
+        input {
+            margin-left: 40%;
+            margin-top: 1%;
+        }
+        button {
+            margin-left: 43.5%;
+            border-radius: 2px solid darkblue;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi!</h1>
+    <form method="POST"  >
+        <tr><input type="text" value="<%=arr[id].title%>" name='title'></tr>
+        <tr><input type="text" value="<%=arr[id].description%>" name='description'></tr>
+        <tr><input type="text" value="<%=arr[id].authors%>" name='authors'></tr>
+        <tr><input type="text" value="<%=arr[id].favorite%>" name='favorite'></tr>
+        <tr><input type="text" value="<%=arr[id].fileCover%>" name='fileCover'></tr>
+        <tr><input type="text" value="<%=arr[id].fileName%>" name='fileName'></tr>
+        <tr><input type="text" value="<%=arr[id].fileBook%>" name='fileBook'></tr>
+        <button type="submit" id='submit'> Сохранить</button>
+</form>
+</body>
+</html>
